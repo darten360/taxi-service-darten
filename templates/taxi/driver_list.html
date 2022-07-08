@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+      Driver list
+      <a style="float: right" class="btn btn-primary" href="{% url 'taxi:driver-create' %}">Create</a>
+  </h1>
+  {% if driver_list %}
+    <ul class="list-nav values">
+      {% for driver in driver_list%}
+        <li>
+          <a class="text-decoration-none" href="{% url "taxi:driver-detail" driver.pk %}">{{ driver.username }}</a>
+            {% if driver == user %}
+                (Me)
+            {% elif driver.first_name and driver.last_name %}
+                <p>({{ driver.first_name }} {{ driver.last_name }})</p>
+            {% else %}
+                (Private driver)
+            {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no drivers in taxi</p>
+  {% endif %}
+{% endblock %}
