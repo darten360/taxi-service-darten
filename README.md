@@ -2,7 +2,7 @@
 
 Django project for managing cars, drivers and manufacturers
 
-[Taxi-service project deployed to Heroku](Paste Url later)
+[Taxi-service project deployed to Heroku](https://taxi-service-darten.herokuapp.com/)
 
 ## Installation
 
