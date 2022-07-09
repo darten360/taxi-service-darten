@@ -19,7 +19,7 @@
                 </li>
         {% endif %}
         {% empty %}
-            <p>Sorry, our service doesn't have any car of this manufacturer((</p>
-            <a class="btn btn-success" href="{% url 'taxi:manufacturers' %}">See other manufacturers</a>
+            <p class="display-6">Sorry, our service doesn't have any car of this manufacturer((</p>
+            <a class="btn btn-warning" href="{% url 'taxi:manufacturers' %}">See other manufacturers</a>
     {% endfor %}
 {% endblock %}

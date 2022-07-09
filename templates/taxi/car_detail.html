@@ -22,15 +22,15 @@
             <a style="padding-right: 1%; " class=text-decoration-none href="{% url 'taxi:driver-detail' driver.pk %}">
                 <div class="cars" style=" border-radius: 10px; background-color: #77777777; padding: 1% 10px 1% 0">
                     <p class="nav lead" style="max-width: max-content">
-                        <strong>Username: </strong> {{   driver.username }}
+                        Username: {{   driver.username }}
                         {% if driver == user %}
                             (Me)
                         {% endif %}
                     </p>
                     {% if driver.first_name and driver.last_name %}
-                        <p class="lead nav" style= "max-width: max-content"><strong>Full name: </strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+                        <p class="lead nav" style= "max-width: max-content">Full name: {{ driver.first_name }} {{ driver.last_name }}</p>
                     {% endif %}
-                        <p class="lead" style="padding-left: 10px; color: black; max-width: max-content"><strong>License number: </strong>{{ driver.license_number }}</p>
+                        <p class="lead" style="padding-left: 10px; color: black; max-width: max-content">License number: {{ driver.license_number }}</p>
                 </div>
             </a>
         </li>

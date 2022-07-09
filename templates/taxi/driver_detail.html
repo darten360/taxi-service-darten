@@ -35,7 +35,7 @@
                 </li>
         {% endif %}
         {% empty %}
-            <p>Sorry, this driver hasn't got any car of our service yet((</p>
+            <p class="display-6">Sorry, this driver hasn't got any car of our service yet((</p>
     {% endfor %}
     {% if driver == user %}
             <a class="btn btn-warning" style="margin: 1%" href="{% url 'taxi:driver-update' driver.pk %}">Update driver</a>
