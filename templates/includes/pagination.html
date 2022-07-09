@@ -3,19 +3,20 @@
         <ul class="pagination">
             {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a href="?{% query_transform request page=page_obj.previous_page_number %}" class="page-link">Prev</a>
+                    <a style="background-color: #F9D71C; border-top-right-radius: unset; border-bottom-right-radius: unset" href="?{% query_transform request page=page_obj.previous_page_number %}" class="button btn">
+                        Prev
+                    </a>
                 </li>
             {% endif %}
 
             <li class="page-item active">
-                <span class="page-link">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
+                <span style="background-color: #444444;border-color: #444444; color: #FFFFFF" class="page-link ">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
             </li>
 
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a href="?{% query_transform request page=page_obj.next_page_number %}" class="page-link">Next</a>
+                    <a style="background-color: #F9D71C; border-bottom-left-radius: unset; border-top-left-radius: unset" href="?{% query_transform request page=page_obj.next_page_number %}" class="btn">Next</a>
                 </li>
             {% endif %}
         </ul>
     {% endif %}
-

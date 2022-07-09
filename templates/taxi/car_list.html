@@ -2,18 +2,29 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    <h1 class="display-4">
-        Cars
-    <form action="" method="get" style="display: flex; float: right">
+    <h1 style="text-align: center" class="display-4">
+    <form action="" method="get" style="display: flex; float: right; margin-bottom: 10px">
         {{ search_form|crispy }}
         <input style="background-color: #444; margin-left: 5px" class="btn" type="submit" value="🔍">
     </form>
-    <a style="float: right; background-color: #F9D71C" class="but btn" href="{% url 'taxi:car-create' %}">Create</a>
+    <a style="float: right; background-color: #F9D71C" class="but btn" href="{% url 'taxi:car-create' %}">Add</a>
+        Cars
     </h1>
     {% if car_list %}
         <ul class="values">
             {% for car in car_list %}
-                <li><a class="nav btn" href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a></li>
+                <li style="border-radius: 10px; background-color: #77777777; margin: 1.5% 0">
+                    <a href="{% url 'taxi:car-detail' car.pk %}">
+                        <div class="cars">
+                            <img style="margin: 2% 0 2% 2%" src="/static/images/unknown.png" width="80" height="80" alt="Car Photo">
+                            {% if car.model|length > 18 %}
+                                <p style="margin-inline: 3%; float: right; max-width: min-content" class="nav">{{ car.model }}</p>
+                            {% else %}
+                                <p style="float: right; margin-inline: 3%" class="nav">{{ car.model }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     {% else %}

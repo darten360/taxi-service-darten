@@ -55,9 +55,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "taxi_service.urls"
 
-# db_from_env = dj-database-url.config()
-# DATABASE['default'].update(db_from_env)
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

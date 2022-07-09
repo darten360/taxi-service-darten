@@ -1,17 +1,17 @@
 <header>
     <div class="menu">
         <ul>
-            <li></li>
-            <li><a class="sidebar text-decoration-none" href="{% url 'taxi:index' %}">Home page</a></li>
-            <li><a class="sidebar text-decoration-none" href="{% url 'taxi:cars' %}">Cars</a></li>
-            <li><a class="sidebar text-decoration-none" href="{% url 'taxi:manufacturers' %}">Manufacturers</a></li>
-            <li><a class="sidebar text-decoration-none" href="{% url 'taxi:drivers' %}">Drivers</a></li>
+            <li><img class="logo" src="/static/images/favicon.png" width="40" height="40" alt="Logo" ></li>
+            <li><a class="sidebar" href="{% url 'taxi:index' %}">Home page</a></li>
+            <li><a class="sidebar" href="{% url 'taxi:cars' %}">Cars</a></li>
+            <li><a class="sidebar" href="{% url 'taxi:manufacturers' %}">Manufacturers</a></li>
+            <li><a class="sidebar" href="{% url 'taxi:drivers' %}">Drivers</a></li>
             {% if user.is_authenticated %}
-                <li><a class="sidebar text-decoration-none" href="{% url 'taxi:driver-detail' user.pk %}">My Profile</a> </li>
-                <li><a class="sidebar text-decoration-none" href="{% url 'logout' %}">Logout</a></li>
-                <li><a class="user text-decoration-none">{{ user.username }}</a></li>
+                <li><a class="sidebar" href="{% url 'taxi:driver-detail' user.pk %}">My Profile</a> </li>
+                <li><a class="sidebar" href="{% url 'logout' %}">Logout</a></li>
+                <a class="user">{{ user.username }}</a>
             {% else %}
-                <li><a class="sidebar text-decoration-none" href="{% url 'login' %}">Login</a></li>
+                <li><a class="sidebar" href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
     </div>

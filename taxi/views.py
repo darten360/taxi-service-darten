@@ -32,7 +32,7 @@ def index(request):
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturers"
-    paginate_by = 2
+    paginate_by = 4
 
 
 class ManufacturerDetailView(LoginRequiredMixin, generic.DetailView):
@@ -63,7 +63,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
-    paginate_by = 5
+    paginate_by = 4
     queryset = Car.objects.all().select_related("manufacturer")
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -116,7 +116,7 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
-    paginate_by = 2
+    paginate_by = 4
 
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):

@@ -3,14 +3,14 @@
 
 {% block content %}
     {% if object %}
-        <h1>Driver Update</h1>
+        <h1 class="display-3" style="text-align: center">Driver Update</h1>
     {% else %}
-        <h1>Create New Driver</h1>
+        <h1 class="display-3" style="text-align: center">Create New Driver</h1>
     {% endif %}
     <form action="" method="post" novalidate>
         {% csrf_token %}
         {{ form|crispy }}
         <br>
-        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-warning" type="submit" value="Submit">
     </form>
 {% endblock %}

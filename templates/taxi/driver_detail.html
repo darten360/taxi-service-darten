@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>
+    <h1 style="text-align: center" class="display-4">
         {{ driver.username }}
         {% if driver == user %}
             (Me)
         {% endif %}
     </h1>
     {% if driver.first_name and driver.last_name %}
-        <p>
+        <p class="display-6">
             <strong>Full name: </strong> {{ driver.first_name }} {{ driver.last_name }}
         </p>
     {% else %}
@@ -16,23 +16,32 @@
             <strong>Private driver</strong>
         </p>
     {% endif %}
-    <p>
+    <p class="display-6">
         <strong>License number: </strong> {{ driver.license_number }}
     </p>
-    <h3>Cars:</h3>
     {% for car in driver.cars.all %}
-        <hr>
-        <p class="text-muted"><strong>Id: </strong> {{ car.id }}</p>
         {% if car.model %}
-            <p><strong>Model: </strong> <a class="text-decoration-none" href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a></p>
-            <p><strong>Manufacturer: </strong> <a class="text-decoration-none" href="{% url 'taxi:manufacturer-detail' car.manufacturer.pk %}">{{ car.manufacturer }}</a></p>
+            <li style="list-style: none; border-radius: 10px; background-color: #77777777; margin: 1.5% 0">
+                    <a style="text-decoration-line: none" href="{% url 'taxi:car-detail' car.pk %}">
+                        <div class="cars">
+                            <img style="margin: 2% 0 2% 2%" src="/static/images/unknown.png" width="77" height="77" alt="Car Photo">
+                            {% if car.model|length > 18 %}
+                                <p class="nav" style="margin-inline: 3%; max-width: min-content; float: right; color: black">{{ car.manufacturer }}</p>
+                                <p class="nav" style="max-width: min-content; float: right">{{ car.model }}</p>
+                            {% else %}
+                                <p class="nav" style="margin-inline: 3%;float: right; color: black">{{ car.manufacturer }}</p>
+                                <p style="float: right" class="nav">{{ car.model }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                </li>
         {% endif %}
         {% empty %}
             <p>Sorry, this driver hasn't got any car of our service yet((</p>
     {% endfor %}
     {% if driver == user %}
-            <a class="btn btn-warning" href="{% url 'taxi:driver-update' driver.pk %}">Update driver</a>
+            <a class="btn btn-warning" style="margin: 1%" href="{% url 'taxi:driver-update' driver.pk %}">Update driver</a>
     {% endif %}
-    <a class="btn btn-secondary li" href="{% url 'taxi:license-update' driver.pk %}">Update license</a>
-    <a class="btn btn-danger li" href="{% url 'taxi:driver-delete' driver.pk %}">Delete driver</a>
+    <a class="btn btn-secondary" style="margin: 1%" href="{% url 'taxi:license-update' driver.pk %}">Update license</a>
+    <a class="btn btn-danger" style="margin: 1%" href="{% url 'taxi:driver-delete' driver.pk %}">Delete driver</a>
 {% endblock %}

@@ -14,28 +14,29 @@
 
 </head>
 <body>
-    <div class="sidebar-nav">
+    <div class="wrapper">
 
-        {% block sidebar %}
-            {% include "includes/sidebar.html" %}
-        {% endblock %}
+{#    <p class="user text-decoration-none">{{ user.username }}</p>#}
+        <div class="sidebar-nav">
 
-    </div>
-    <div class="news">
-        {% block news %}{% endblock %}
-    </div>
-    <div class="content">
-        {% block content %}{% endblock %}
+            {% block sidebar %}
+                {% include "includes/sidebar.html" %}
+            {% endblock %}
 
-        {% block pagination %}
-            {% include "includes/pagination.html" %}
-        {% endblock %}
-    </div>
-    <br>
-    <div class="footer-margin">
-        <footer class="footer">
-            <a href="{% url 'taxi:index' %}">Taxi Service</a>
-        </footer>
+        </div>
+        <main class="main">
+            <div class="news">
+                {% block news %}{% endblock %}
+            </div>
+            <div class="content">
+                {% block content %}{% endblock %}
+
+                {% block pagination %}
+                    {% include "includes/pagination.html" %}
+                {% endblock %}
+            </div>
+        </main>
+        {% include "includes/footer.html" %}
     </div>
 </body>
 

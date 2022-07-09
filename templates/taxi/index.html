@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
-    <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+    <h1 style="text-align: center" class="display-1">Taxi Service Home</h1>
+    <p style="text-align: center" class="display-6">Welcome to Best Taxi Ever!</p>
+    <div style="padding-left: 3%; padding-bottom: 1%">
+        <p style="font-size: 33px">The Taxi service has the following record counts:</p>
+        <ul style="list-style: none; padding-left: 0"><li class="lead"><strong>Cars:</strong> {{ num_cars }}</li>
+            <li class="lead"><strong>Drivers:</strong> {{ num_drivers }}</li>
+            <li class="lead"><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
+        </ul>
+            <p style="font-size: 25px">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+    </div>
 {% endblock %}

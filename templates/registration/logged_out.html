@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p>Logged out!</p>
+    <h1 class="display-5" style="text-align: center">So sad...</h1>
+    <p class="">Logged out!</p>
 
-    <p>Click <a href="{% url 'login' %}">here</a> to login again.</p>
+    <p>Click <a class="logout" style="color: #F9D71C; --link-hover-color: black; text-decoration-line: none;" href="{% url 'login' %}">here</a> to login again.</p>
 {% endblock %}
